@@ -32,21 +32,13 @@ async function addUser (req, res, next) {
     }
 }
 
-function updateUser(req, res) {
-    let id = req.params.id;
-    let putValue = req.body;
-    if(id) {
-        let user = users.find((u) => u.id == id);
-        if(user) {
-            user = {...user, ...putValue};
-            users = users.filter((u) => u.id != id);
-            users.push(user);
-            res.send(users);
-        } else {
-            res.status(404).send(`User update id ${id} is not find`);
-        }
-    } else {
-        res.send(users);
+async function updateUser(req, res, next) {
+    try {
+        let id = req.params.id;
+        let user = await User.findByIdAndUpdate(id, {$set: req.body}, {new: true});
+        res.send({message: "User update", user});
+    } catch (err) {
+        next(err);
     }
 }
 
