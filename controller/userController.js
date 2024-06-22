@@ -1,23 +1,34 @@
-let {users} = require("../Data/data");
+// let {users} = require("../Data/data");
+const User = require("../Models/userModel");
 
-function getUser(req, res) {
-    let id = req.query.id;
-    if(id){
-        let user = users.find((u) => u.id == id);
-        res.send(user);
-    } else {
-        res.send(users);
+async function getUser(req, res, next) {
+    try{
+        let id = req.query.id;
+        if(id) {
+            let user = await User.findById(id);
+            if(user) {
+                res.send(user);
+            } else {
+                console.log("user can not found");
+                let err = new Error(`User with id ${id} not found`);
+                next(err);
+            }
+        } else {
+            let fullList = await User.find();
+            res.send(fullList);
+        }
+    } catch (err) {
+        next(err);
     }
 }
 
-function addUser (req, res) {
-    let user = req.body;
-    let id = users.length + 42;
-    if (user) {
-        user = {id: id, ...user};
-        users.push(user);
-        res.send(users);
-        console.log(`User id ${id} is added`);
+async function addUser (req, res, next) {
+    try{
+        let user = req.body;
+        let addUser = await User.create(user);
+        res.send({message: `User with id ${addUser._id} have been added`});
+    }catch (err) {
+        next(err);
     }
 }
 

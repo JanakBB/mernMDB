@@ -9,3 +9,16 @@
 6/22/2024 - POST - /api/user/add - ::1 - 200 - 3ms
 6/22/2024 - GET - /api/user/get - ::1 - 200 - 3ms
 6/22/2024 - GET - /api/user/get?id=1 - ::1 - 500 - 2ms
+6/22/2024 - POST - /api/user/add - ::1 - 500 - 8ms
+6/22/2024 - POST - /api/user/add - ::1 - 500 - 3ms
+6/22/2024 - POST - /api/user/add - ::1 - 500 - 3ms
+6/22/2024 - POST - /api/user/add - ::1 - 500 - 6ms
+6/22/2024 - POST - /api/user/add - ::1 - 500 - 5ms
+6/22/2024 - POST - /api/user/add - ::1 - 200 - 10ms
+6/22/2024 - GET - /api/user/get - ::1 - 500 - 4ms
+6/22/2024 - GET - /api/user/get?id=6676c7955c1d13e71ec790c8 - ::1 - 200 - 20ms
+6/22/2024 - GET - /api/user/get - ::1 - 500 - 9ms
+6/22/2024 - POST - /api/user/add - ::1 - 200 - 17ms
+6/22/2024 - GET - /api/user/get - ::1 - 500 - 2ms
+6/22/2024 - GET - /api/user/get - ::1 - 200 - 8ms
+6/22/2024 - GET - /api/user/get?id=6676c88ec78473011165399f - ::1 - 200 - 9ms
